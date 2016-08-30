@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1 Subscribe Step 3
+    h2 Select APP & PLAN
+    div.loginbox
+        form(name="select-plan-app", action="/step4", method="post")
+            h2 Select an App
+            for app in apps
+                input(type="radio", name="appid", value=app.id)
+                label #{app.name}
+                br
+            h2 Select a Plan
+            for plan in plans
+                input(type="radio", name="planurl", value=plan.url)
+                label #{plan.name} (v#{plan.version})
+                br
+            input(type="submit", value="Submit")

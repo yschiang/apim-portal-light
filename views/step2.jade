@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Subscribe Step 2
+    h2 Select Org
+    div.loginbox
+        form(name="login", action="/step3", method="post")
+            for org in orgs
+                input(type="radio", name="orgid", value=org.id)
+                label #{org.name}
+                br
+            input(type="submit", value="Submit")

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Subscribe Step 1
+    h2 Login
+    div.loginbox
+        form(name="login", action="/step2", method="post")
+            p Username
+            input(type="text", name="user", style='width: 200px')
+            p Password
+            input(type="password", name="pass", style='width: 200px')
+            input(type="submit", value="Submit")
