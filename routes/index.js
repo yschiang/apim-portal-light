@@ -6,17 +6,8 @@ var util = require('util');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-function initURLOptions(auth, path) {
-    return {
-        host: '9.191.195.6',
-        port: 443,
-        headers: {
-            'X-IBM-APIManagement-Context': 'laeorg.sb'
-        },
-        auth: auth,
-        path: path
-    };
-}
+
+var initURLOptions;
 
 function getError(msg, status, stack) {
     return {
@@ -36,6 +27,18 @@ router.get('/', function(req, res, next) {
 
 /* Step1. Input login form */
 router.get('/step1', function(req, res) {
+
+    initURLOptions = function (auth, path) {
+        return {
+            host: req.app.get('PORTAL_HOST'),
+            port: 443,
+            headers: {
+                'X-IBM-APIManagement-Context': req.app.get('PORTAL_CONTEXT'),
+            },
+            auth: auth,
+            path: path
+        };
+    }
 
     res.render('step1');
 });

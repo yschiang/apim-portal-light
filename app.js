@@ -14,6 +14,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// global vars
+app.set('PORTAL_HOST', '9.191.195.6');
+app.set('PORTAL_CONTEXT', 'laeorg.sb');
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
