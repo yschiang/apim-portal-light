@@ -12,7 +12,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // global vars
 app.set('PORTAL_HOST', '9.191.195.6');
